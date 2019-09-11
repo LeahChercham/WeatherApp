@@ -3,14 +3,12 @@ const render = new Renderer()
 
 
 const loadPage = function () {
-setTimeout(()=> {render.renderData(weatherManager.cityData)}, 3000)
-weatherManager.getDataFromDB()
+weatherManager.getDataFromDB().then(function(res){render.renderData(weatherManager.cityData)})
 }
 
 const handleSearch = function () {
     let cityInput = $("#cityInput").val()
-    weatherManager.getCityData(cityInput)
-    setTimeout(()=> {render.renderData(weatherManager.cityData)}, 2000)
+    weatherManager.getCityData(cityInput).then(function(res){render.renderData(weatherManager.cityData)})
 }
 
 
@@ -22,8 +20,7 @@ weatherManager.saveCity(cityName)
 
 const removeFromDB = function () {
     let cityName = $(this).closest("div").find(".name").html()
-    weatherManager.removeCity(cityName)
-    setTimeout(()=> {loadPage()}, 2000)
+    weatherManager.removeCity(cityName).then(function(res){render.renderData(weatherManager.cityData)})
 }
 
 

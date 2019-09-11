@@ -5,7 +5,7 @@ class WeatherManager {
 
     getDataFromDB() {
         //works
-        $.ajax({
+       return $.ajax({
             method: "get",
             url: "/cities",
             success: (data)=> {
@@ -23,7 +23,7 @@ class WeatherManager {
 
     getCityData(cityName) {
         //works
-        $.ajax({
+        return $.ajax({
             method: "get",
             url: `/city/${cityName}`,
             success: (data) => {
@@ -39,7 +39,7 @@ class WeatherManager {
         let data = this.cityData.find(c => c.name = cityName)
         console.log(data)
 
-        $.ajax({
+        return $.ajax({
             method: "post",
             url: `/city`,
             data: data,
@@ -52,10 +52,12 @@ class WeatherManager {
 
     removeCity(cityName) {
         //works
-        $.ajax({
+       return $.ajax({
             method: "delete",
             url: `/city/${cityName}`,
-            success: function () {
+            success: ()=> {
+                let index = this.cityData.findIndex(c => c.name = cityName)
+                this.cityData.splice(index,1)
                 console.log("Successful delete manoever")
             },
             error: function (xhr, text, error) { console.log(text) }
