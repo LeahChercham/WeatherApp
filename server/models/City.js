@@ -1,7 +1,7 @@
 const mongoose = require("mongoose")
 const Schema = mongoose.Schema
 
-const weatherSchema = new Schema({
+const CitySchema = new Schema({
     name: String,
     updatedAt: Date,
     temperature: Number,
@@ -9,6 +9,6 @@ const weatherSchema = new Schema({
     conditionPic: String
 })
 
-const Weather = mongoose.model("Weather", weatherSchema)
+const City = mongoose.model("City", CitySchema)
 
-module.exports = Weather
+module.exports = City
