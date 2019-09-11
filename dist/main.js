@@ -1,5 +1,5 @@
-const renderer = Renderer
-const weatherManager = WeatherManager
+const renderer = Renderer()
+const weatherManager = WeatherManager()
 
 const loaddPage = function(){
 
@@ -8,8 +8,9 @@ const loaddPage = function(){
 }
 
 const handleSearch = function(){
+    debugger
     let cityInput = $("#cityInput").val()
-    weatherManager.getCityData(cityInput).then(renderer.renderData())
+    weatherManager.getCityData(cityInput).then(function(err,res){renderer.renderData(res)})
 }
 
 $("#searchButton").on("click", handleSearch)
