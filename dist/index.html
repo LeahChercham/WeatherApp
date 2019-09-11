@@ -7,14 +7,38 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+    <div id="container">
+<div id="header">
+
+</div>
+<div id="main">
+
+
+</div>
+
+    </div>
 
 
 
 
-
+    <script id="weather-template" type:"text/x-handlebars-template">
+        {{#each allCityData}}
+        <div>
+            <div class="name">{{name}}</div>
+            <div class="temperature">{{temperature}}</div>
+            <div class="updatedAt">{{updatedAt}}</div>
+            <div class="condition">{{condition}}</div>
+            <img class="conditionPic" src={{conditionPic}} alt="condition Picture">
+        </div>
+        {{/each}}
+    </script>
 </body>
 
+
+
+
+
+<!-- Scripts -->
 <script src="../node_modules/jquery/dist/jquery.js"></script>
 <script src="../node_modules/handlebars/dist/handlebars.js"></script>
 <script src="./WeatherManager.js"></script>
