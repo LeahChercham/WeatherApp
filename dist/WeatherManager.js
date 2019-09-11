@@ -14,8 +14,7 @@ const getDataFromDB = function(){
     })
 }
 
-const getCityData = function(){
-    let cityName 
+const getCityData = function(cityName){
 
     $.ajax({
         method:"get",
