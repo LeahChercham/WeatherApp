@@ -1,0 +1,52 @@
+body{
+    font-family: 'Raleway', sans-serif;
+}
+
+
+
+.cityContainer{
+    display:grid;
+    grid-template-areas: 
+    ". . n t . ."
+    "s . c c . i"
+    "r . c c . i"
+    ". . u u . .";
+}
+
+.name{
+    grid-area: n;
+    font-size: 2em;
+    justify-items: center;
+    align-items: center;
+}
+
+.temperature{
+    grid-area: t;
+    font-size: 2em;
+}
+
+.updatedAt{
+    grid-area: u;
+    justify-self: center;
+    align-self: center;
+}
+
+.condition{
+    grid-area: c;
+    display:grid;
+    justify-content: center;
+    align-content: center;
+}
+.conditionPic{
+    grid-area: i;
+    justify-content: center;
+    align-content: center;
+}
+
+.saveButton{
+    grid-area: s;
+}
+
+.removeButton{
+    grid-area: r;
+}

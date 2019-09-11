@@ -4,6 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../node_modules/@fortawesome/fontawesome-free/css/all.css">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -27,11 +28,11 @@
 
     <script id="weather-template" type="text/x-handlebars-template">
         {{#each allCityData}}
-        <div>
+        <div class="cityContainer">
             <button class="saveButton">Save <i class="fas fa-save"></i></button>
             <button class="removeButton">Remove <i class="fas fa-trash"></i></button>
             <div class="name">{{name}}</div>
-            <div class="temperature">{{temperature}} Degrees</div>
+            <div class="temperature">{{temperature}} °C</div>
             <div class="updatedAt">Updated at: {{updatedAt}} local time</div>
             <div class="condition">Condition: {{condition}}</div>
             <img class="conditionPic" src={{conditionPic}} alt="condition Picture"></img>
