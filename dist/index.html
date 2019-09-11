@@ -6,7 +6,9 @@
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body onload:"loadPage()">
+
+<body>
+
     <div id="container">
 <div id="header">
     <input id="cityInput" type="text" placeholder="Enter City for which you want to get the weather">
@@ -22,18 +24,18 @@
 
 
 
-    <script id="weather-template" type:"text/x-handlebars-template">
+    <script id="weather-template" type="text/x-handlebars-template">
         {{#each allCityData}}
         <div>
             <button class="saveToDB">Save</button>
             <button class="removeFromDB">Remove</button>
             <div class="name">{{name}}</div>
-            <div class="temperature">{{temperature}}</div>
-            <div class="updatedAt">{{updatedAt}}</div>
-            <div class="condition">{{condition}}</div>
-            <img class="conditionPic" src={{conditionPic}} alt="condition Picture">
+            <div class="temperature">{{temperature}} Degrees</div>
+            <div class="updatedAt">Updated at: {{updatedAt}} local time</div>
+            <div class="condition">Condition: {{condition}}</div>
+            <img class="conditionPic" src={{conditionPic}} alt="condition Picture"></img>
         </div>
-        {{/each}}
+       {{/each}}
     </script>
 
     <!-- Scripts -->

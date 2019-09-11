@@ -1,38 +1,51 @@
-const renderer = Renderer()
-const weatherManager = WeatherManager()
+const weatherManager = new WeatherManager()
+const render = new Renderer()
 
-const loaddPage = function(){
 
-    weatherManager.getDataFromDB()
-    // it should render the city data from weathermanager
+const loadPage = function () {
+weatherManager.getDataFromDB()
+setTimeout(()=> {render.renderData(weatherManager.cityData)}, 2000)
 }
 
-const handleSearch = function(){
-    debugger
+const handleSearch = function () {
     let cityInput = $("#cityInput").val()
-    weatherManager.getCityData(cityInput).then(function(err,res){renderer.renderData(res)})
+    weatherManager.getCityData(cityInput)
+    setTimeout(()=> {render.renderData(weatherManager.cityData)}, 2000)
+}
+
+
+
+const saveThisToDB = function(){
+    debugger
+let cityName = $(this).closest("div").find(".name").html()
+weatherManager.saveCity(cityName)
 }
 
 $("#searchButton").on("click", handleSearch)
-$(".saveToDB").on("click", function(){
 
-})
 
-const findCityName = function(){
-    return cityName = $(this).closest("div").find(".name")
-}
+$("body").on("click",".saveToDB", saveThisToDB())
 
-const saveToDB = function(){
-    findCityName()
-    weatherManager.saveCity(cityName)
-}
-
-const removeFromDB = function(){
+const removeFromDB = function () {
     findCityName()
     weatherManager.removeCity(cityName)
 }
 
 
-$(".removeFromDB").on("click", function(){
+$(".removeFromDB").on("click", function () {
 
 })
+
+
+
+// =======================
+
+// const findCityName = function () {
+//     return cityName = $(this).closest("div").find(".name")
+// }
+
+// const saveToDB = function () {
+//     debugger
+//     findCityName()
+//     weatherManager.saveCity(cityName)
+// }
