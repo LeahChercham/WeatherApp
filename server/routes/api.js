@@ -3,36 +3,45 @@ const router = express.Router()
 const request = require("request")
 const apiKey = "17b16b2c7d335f2a1641e886890e543e"
 const City = require("../models/City")
+const moment = require("moment")
 
 // =============================
 
 
-router.get("/city/:cityName", function(req,res){
-    
+router.get("/city/:cityName", function (req, res) { // works but need to clean up updatedAt
     let cityName = req.params.cityName
-
     request(`http://api.weatherstack.com/current?access_key=${apiKey}&query=${cityName}`, function (err, response) {
-        console.log(response.body)
-        res.send(response.body)
+  
+    let data = JSON.parse(response.body) 
+    let date = data.location.localtime.split(" ", 1) + " " + data.current.observation_time
+    
+    let city = {
+             "name": data.location.name,
+             "updatedAt": date,
+             "temperature": data.current.temperature,
+             "condition": data.current.weather_descriptions,
+             "conditionPic": data.current.weather_icons
+         }
+         res.send(city)
     })
 })
 
-router.get("/cities", function(req,res){
-    City.find({}, function(err, cities){
+router.get("/cities", function (req, res) { //works
+    City.find({}, function (err, cities) {
         res.send(cities)
     })
 })
 
-router.post("/city", function(req,res){
-    let data = req.body 
+router.post("/city", function (req, res) { //works
+    let data = req.body
     let city = new City(data)
-    console.log(city)
-    // data.save()
+    city.save()
+    console.log(`Saved ${city} to DB`)
 })
 
-router.delete("/city/:cityName", function(req,res){
+router.delete("/city/:cityName", function (req, res) { //works
     let cityName = req.params.cityName
-    City.findOneAndDelete({"name":cityName}, ()=> res.send(`Deleted ${cityName}`))
+    City.findOneAndDelete({ "name": cityName }, () => res.send(`Deleted ${cityName}`))
 })
 
 
