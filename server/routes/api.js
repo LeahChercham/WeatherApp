@@ -19,8 +19,8 @@ router.get("/city/:cityName", function (req, res) { // works but need to clean u
              "name": data.location.name,
              "updatedAt": date,
              "temperature": data.current.temperature,
-             "condition": data.current.weather_descriptions,
-             "conditionPic": data.current.weather_icons
+             "condition": data.current.weather_descriptions[0],
+             "conditionPic": data.current.weather_icons[0]
          }
          res.send(city)
     })
@@ -28,6 +28,7 @@ router.get("/city/:cityName", function (req, res) { // works but need to clean u
 
 router.get("/cities", function (req, res) { //works
     City.find({}, function (err, cities) {
+        console.log(cities)
         res.send(cities)
     })
 })

@@ -3,8 +3,8 @@ const render = new Renderer()
 
 
 const loadPage = function () {
+setTimeout(()=> {render.renderData(weatherManager.cityData)}, 3000)
 weatherManager.getDataFromDB()
-setTimeout(()=> {render.renderData(weatherManager.cityData)}, 2000)
 }
 
 const handleSearch = function () {
@@ -15,37 +15,20 @@ const handleSearch = function () {
 
 
 
-const saveThisToDB = function(){
-    debugger
-let cityName = $(this).closest("div").find(".name").html()
+const saveToDB = function(){
+    let cityName = $(this).closest("div").find(".name").html()
 weatherManager.saveCity(cityName)
 }
 
-$("#searchButton").on("click", handleSearch)
-
-
-$("body").on("click",".saveToDB", saveThisToDB())
-
 const removeFromDB = function () {
-    findCityName()
+    let cityName = $(this).closest("div").find(".name").html()
     weatherManager.removeCity(cityName)
+    setTimeout(()=> {loadPage()}, 2000)
 }
 
 
-$(".removeFromDB").on("click", function () {
+$("#searchButton").on("click", handleSearch)
 
-})
+$("#main").on("click", ".saveButton", saveToDB)
 
-
-
-// =======================
-
-// const findCityName = function () {
-//     return cityName = $(this).closest("div").find(".name")
-// }
-
-// const saveToDB = function () {
-//     debugger
-//     findCityName()
-//     weatherManager.saveCity(cityName)
-// }
+$("#main").on("click", ".removeButton", removeFromDB)

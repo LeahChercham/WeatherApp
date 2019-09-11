@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body onload="loadPage()">
 
     <div id="container">
 <div id="header">
@@ -27,8 +27,8 @@
     <script id="weather-template" type="text/x-handlebars-template">
         {{#each allCityData}}
         <div>
-            <button class="saveToDB">Save</button>
-            <button class="removeFromDB">Remove</button>
+            <button class="saveButton">Save</button>
+            <button class="removeButton">Remove</button>
             <div class="name">{{name}}</div>
             <div class="temperature">{{temperature}} Degrees</div>
             <div class="updatedAt">Updated at: {{updatedAt}} local time</div>
