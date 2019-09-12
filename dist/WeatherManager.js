@@ -9,7 +9,6 @@ class WeatherManager {
             method: "get",
             url: "/cities",
             success: (data)=> {
-              // // check if data is already in array or if i should push etc
                if(data){
                    this.cityData = data
                    console.log("this is the data we get from db: "  + this.cityData)

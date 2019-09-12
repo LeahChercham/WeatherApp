@@ -3,11 +3,9 @@ const render = new Renderer()
 
 
 const loadPage = function () {
-    console.log("loadpage started")
 weatherManager.getDataFromDB().then(function(res){
     
     if(weatherManager.cityData.length != 0){
-        console.log("render started")
         render.renderData(weatherManager.cityData)} else {
             console.log("No data to render")
         }})
@@ -15,19 +13,19 @@ weatherManager.getDataFromDB().then(function(res){
 
 const handleSearch = function () {
     let cityInput = $("#cityInput").val()
+    if(cityInput){
     weatherManager.getCityData(cityInput).then(function(res){render.renderData(weatherManager.cityData)})
+    }else {alert("Please enter a City!")}
 }
 
 
 
 const saveToDB = function(){
-    debugger
        let cityName = $(this).closest(".cityContainer").find(".name").html()
 weatherManager.saveCity(cityName)
 }
 
 const removeFromDB = function () {
-    debugger
     let cityName = $(this).closest(".cityContainer").find(".name").html()
     weatherManager.removeCity(cityName).then(function(res){render.renderData(weatherManager.cityData)})
 }
