@@ -13,7 +13,7 @@
 
     <div id="container">
 <div id="header">
-    <input id="cityInput" type="text" placeholder="Enter City for which you want to get the weather">
+    <input id="cityInput" type="text" placeholder="City">
     <button id="searchButton">Search</button>
 </div>
 <div id="main">
@@ -31,8 +31,10 @@
         <div class="cityContainer">
             <button class="saveButton">Save <i class="fas fa-save"></i></button>
             <button class="removeButton">Remove <i class="fas fa-trash"></i></button>
+            <div class="nT">
             <div class="name">{{name}}</div>
             <div class="temperature">{{temperature}} °C</div>
+        </div>
             <div class="updatedAt">Updated at: {{updatedAt}} local time</div>
             <div class="condition">Condition: {{condition}}</div>
             <img class="conditionPic" src={{conditionPic}} alt="condition Picture"></img>

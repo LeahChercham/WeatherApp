@@ -3,12 +3,25 @@ body{
     background: linear-gradient(darkblue, lightblue)
 }
 
+input{
+    background:inherit;
+    color:white;
+    border-top: none;
+    border-left:none;
+    border-right: none;
+    font-size: 2em;
+}
+
+#searchButton{
+    border-radius: 50px;
+}
 
 #header{
     display:grid;
     grid-template-columns: 2fr 1fr;
 }
-.main{
+#main{
+    color:white;
     display:grid;
     grid-gap: 5vh;
 }
@@ -16,21 +29,25 @@ body{
 .cityContainer{
     display:grid;
     grid-template-areas: 
-    ". . n t . ."
+    ". . n n . ."
     "s . c c . i"
     "r . c c . i"
     ". . u u . .";
 }
+.nT{
+    grid-area:n;
+    display:grid;
+    justify-content: center;
+    align-content: center;
+}
 
 .name{
-    grid-area: n;
     font-size: 2em;
     justify-items: center;
     align-items: center;
 }
 
 .temperature{
-    grid-area: t;
     font-size: 2em;
 }
 
