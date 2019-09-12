@@ -10,6 +10,7 @@ input{
     border-left:none;
     border-right: none;
     font-size: 2em;
+    color:white;
 }
 ::placeholder{
     color:white;
