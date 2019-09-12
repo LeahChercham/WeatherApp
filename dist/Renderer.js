@@ -1,9 +1,10 @@
 class Renderer {
 
     renderData(allCityData){
-        $("#main").empty()
 
-        if(allCityData != []){
+        $("#main").empty()
+        
+        if(allCityData.length != 0){
         const source = $("#weather-template").html()
         const template = Handlebars.compile(source)
         const newHtml = template({allCityData})

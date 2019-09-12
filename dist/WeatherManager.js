@@ -38,7 +38,6 @@ class WeatherManager {
     }
 
     saveCity(cityName) {
-
         //works
         let data = this.cityData.find(c => c.name === cityName)
         console.log(data)
