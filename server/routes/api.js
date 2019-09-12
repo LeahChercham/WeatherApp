@@ -1,7 +1,7 @@
 const express = require("express")
 const router = express.Router()
 const request = require("request")
-const apiKey = "17b16b2c7d335f2a1641e886890e543e"
+const apiKey = APIKEY
 const City = require("../models/City")
 const moment = require("moment")
 
