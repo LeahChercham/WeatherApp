@@ -1,19 +1,30 @@
 body{
     font-family: 'Raleway', sans-serif;
-    background: linear-gradient(darkblue, lightblue)
+    background-color:#3A405A;
 }
 
 input{
     background:inherit;
-    color:white;
+    border-color: #B5D6B2;
     border-top: none;
     border-left:none;
     border-right: none;
     font-size: 2em;
 }
+::placeholder{
+    color:white;
+}
 
 #searchButton{
+    border-style: none;
     border-radius: 50px;
+    background-color: #759FBC;
+    color:white;
+}
+#container{
+    margin:10px;
+    width:96vw;
+    height:99vh;
 }
 
 #header{
@@ -24,31 +35,41 @@ input{
     margin-top:5vh;
     color:white;
     display:grid;
-    grid-gap: 5vh;
+    grid-gap: 5vw;
 }
 
 .cityContainer{
+    padding:2vmax;
+    border-style: solid;
+    border-color: #B5D6B2;
     display:grid;
     grid-template-areas: 
-    ". . n n . ."
-    "s . t t . i"
-    "r . c c . i"
-    ". . u u . .";
+    "b  n t  ."
+    "b  c c  i"
+    "b  u u  .";
+    border-right:none;
+    border-bottom: none;
 }
 
+#cityButtons{
+    grid-area: b;
+    display:grid;
+    grid-template-rows: 1fr 1fr;
+}
 .temperature{
     grid-area:t;
     display:grid;
-    font-size: 1em;
-    justify-items: center;
+    margin-left:1vmax;
+    font-size: 125%;
+    justify-items:left;
     align-items: center;
 }
 
 .name{
     grid-area:n;
     display:grid;
-    font-size: 2em;
-    justify-items: center;
+    font-size: 150%;
+    justify-items: right;
     align-items: center;
 }
 
@@ -56,6 +77,17 @@ input{
     grid-area: u;
     justify-self: center;
     align-self: center;
+    display:grid;
+    grid-template-columns: 1fr 8fr 1fr;
+}
+#upText{
+    justify-content: center;
+    align-content: center;
+    word-wrap: break-word;
+    display:grid;
+    font-size:70%;
+    text-align: center;
+    color:#F7EBEC;
 }
 
 .condition{
@@ -63,15 +95,19 @@ input{
     display:grid;
     justify-content: center;
     align-content: center;
+    color:#F7EBEC;
 }
+
 .conditionPic{
     grid-area: i;
-    justify-content: right;
-    align-content: center;
+    justify-content: center;
+    align-content: right;
+    margin-right:-3vh;
+    size: 120%;
 }
 
 .saveButton{
-    grid-area: s;
+    
     background-color: inherit;
     border: none;
     display:grid;
@@ -80,7 +116,7 @@ input{
 }
 
 .removeButton{
-    grid-area: r;
+    
     background-color: inherit;
     border: none;
     display:grid;
@@ -89,6 +125,6 @@ input{
 }
 
 i{
-    color:white;
+    color:#759FBC;
     font-size: 2em;
 }
