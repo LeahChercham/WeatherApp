@@ -18,9 +18,10 @@ input{
 
 #header{
     display:grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 5fr 2fr;
 }
 #main{
+    margin-top:5vh;
     color:white;
     display:grid;
     grid-gap: 5vh;
@@ -30,25 +31,25 @@ input{
     display:grid;
     grid-template-areas: 
     ". . n n . ."
-    "s . c c . i"
+    "s . t t . i"
     "r . c c . i"
     ". . u u . .";
 }
-.nT{
-    grid-area:n;
-    display:grid;
-    justify-content: center;
-    align-content: center;
-}
 
-.name{
-    font-size: 2em;
+.temperature{
+    grid-area:t;
+    display:grid;
+    font-size: 1em;
     justify-items: center;
     align-items: center;
 }
 
-.temperature{
+.name{
+    grid-area:n;
+    display:grid;
     font-size: 2em;
+    justify-items: center;
+    align-items: center;
 }
 
 .updatedAt{
@@ -65,14 +66,29 @@ input{
 }
 .conditionPic{
     grid-area: i;
-    justify-content: center;
+    justify-content: right;
     align-content: center;
 }
 
 .saveButton{
     grid-area: s;
+    background-color: inherit;
+    border: none;
+    display:grid;
+    justify-content: center;
+    align-content: center;
 }
 
 .removeButton{
     grid-area: r;
+    background-color: inherit;
+    border: none;
+    display:grid;
+    justify-content: center;
+    align-content: center;
+}
+
+i{
+    color:white;
+    font-size: 2em;
 }

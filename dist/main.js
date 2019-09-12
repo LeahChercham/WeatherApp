@@ -14,8 +14,7 @@ const handleSearch = function () {
 
 
 const saveToDB = function(){
-    debugger
-    let cityName = $(this).closest("div").find(".name").html()
+       let cityName = $(this).closest("div").find(".name").html()
 weatherManager.saveCity(cityName)
 }
 

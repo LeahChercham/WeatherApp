@@ -35,6 +35,7 @@ router.get("/cities", function (req, res) { //works
 
 router.post("/city", function (req, res) { //works
     let data = req.body
+    console.log(data)
     let city = new City(data)
     city.save()
     console.log(`Saved ${city} to DB`)

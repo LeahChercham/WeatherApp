@@ -29,12 +29,12 @@
     <script id="weather-template" type="text/x-handlebars-template">
         {{#each allCityData}}
         <div class="cityContainer">
-            <button class="saveButton">Save <i class="fas fa-save"></i></button>
-            <button class="removeButton">Remove <i class="fas fa-trash"></i></button>
-            <div class="nT">
+            <button class="saveButton"><i class="fas fa-save"></i></button>
+            <button class="removeButton"><i class="fas fa-trash"></i></button>
+        
             <div class="name">{{name}}</div>
             <div class="temperature">{{temperature}} °C</div>
-        </div>
+        
             <div class="updatedAt">Updated at: {{updatedAt}} local time</div>
             <div class="condition">Condition: {{condition}}</div>
             <img class="conditionPic" src={{conditionPic}} alt="condition Picture"></img>
