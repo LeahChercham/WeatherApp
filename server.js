@@ -7,7 +7,7 @@ const api = require("./server/routes/api")
 
 const app = express()
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/WeatherDB", {useNewUrlParser:true}, ()=> console.log("Connected to DB"))
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/weatherAppDB", {useNewUrlParser:true}, ()=> console.log("Connected to DB"))
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended:false}))
