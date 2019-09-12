@@ -18,4 +18,4 @@ app.use("/", api)
 
 
 // =====================================================
-app.listen(process.env.PORT || PORT, function(){console.log("Running on port " + port)})
+app.listen(process.env.PORT || PORT, function(){console.log("Running on port " + PORT)})
