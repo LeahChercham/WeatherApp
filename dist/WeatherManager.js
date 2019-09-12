@@ -35,6 +35,7 @@ class WeatherManager {
     }
 
     saveCity(cityName) {
+        debugger
         //works
         let data = this.cityData.find(c => c.name = cityName)
         console.log(data)
@@ -46,7 +47,7 @@ class WeatherManager {
             success: function (data) {
                 console.log("post request success!")
             },
-            error: function (xhr, text, error) { console.log(text) }
+            error: function (xhr, text, error) { console.log("error"+ text) }
         })
     }
 
