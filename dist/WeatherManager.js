@@ -27,7 +27,7 @@ class WeatherManager {
             url: `/city/${cityName}`,
             success: (data) => {
                 if(data.problem){alert(data.problem)}else {
-                this.cityData.push(data)
+                this.cityData.unshift(data)
                 console.log(data)
                 console.log(this.cityData)
             }
