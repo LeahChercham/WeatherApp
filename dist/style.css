@@ -12,6 +12,7 @@ input{
     font-size: 2em;
     color:white;
 }
+
 ::placeholder{
     color:white;
 }
@@ -21,6 +22,9 @@ input{
     border-radius: 50px;
     background-color: #759FBC;
     color:white;
+    cursor:pointer;
+    flex:1 0 90px;
+    height: inherit;
 }
 #container{
     margin:10px;
@@ -29,9 +33,11 @@ input{
 }
 
 #header{
-    display:grid;
-    grid-template-columns: 5fr 2fr;
-}
+    padding:2em;
+    display:flex;
+    flex-wrap: wrap;
+    }
+
 #main{
     margin-top:5vh;
     color:white;
