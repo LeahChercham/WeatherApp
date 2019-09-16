@@ -22,15 +22,13 @@ const handleSearch = function () {
         }}else {alert("Please enter a City!")}  
 }
 
-const refreshCityData = function(){
-    
+const refreshCityData = function(){ // Put this into function in weatherManager and use put 
     let cityName = $(this).closest(".cityContainer").find(".name").html()
     let city = weatherManager.cityData.find(c => c.name == cityName)
     if(city.saved == true){
         debugger
         weatherManager.removeCity(cityName)
         weatherManager.getCityData(cityName).then(()=>weatherManager.saveCity(cityName)).then(()=>render.renderData(weatherManager.cityData))
-        
     } else {
         let index = weatherManager.cityData.findIndex(c => c.name == cityName)
         weatherManager.cityData.splice(index, 1)
