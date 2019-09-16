@@ -27,7 +27,7 @@ class WeatherManager {
             url: `/city/${cityName}`,
             success: (data) => {
                 if (data.problem) { alert(data.problem) } else {
-                    this.cityData.unshift(data)
+                    this.cityData.push(data)
                     console.log(data)
                     console.log(this.cityData)
                 }
@@ -38,9 +38,10 @@ class WeatherManager {
 
      saveCity(cityName) {
         //works
-        
+        debugger
         
         let data = this.cityData.find(c => c.name === cityName)
+        data.saved = true
         console.log(this.cityData)
 
          $.ajax({

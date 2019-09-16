@@ -27,10 +27,10 @@ const refreshCityData = function(){
     let cityName = $(this).closest(".cityContainer").find(".name").html()
     let city = weatherManager.cityData.find(c => c.name == cityName)
     if(city.saved == true){
+        debugger
         weatherManager.removeCity(cityName)
-        weatherManager.getCityData(cityName)
-        weatherManager.saveCity(cityName)
-        render.renderData(weatherManager.cityData)
+        weatherManager.getCityData(cityName).then(()=>weatherManager.saveCity(cityName)).then(()=>render.renderData(weatherManager.cityData))
+        
     } else {
         let index = weatherManager.cityData.findIndex(c => c.name == cityName)
         weatherManager.cityData.splice(index, 1)

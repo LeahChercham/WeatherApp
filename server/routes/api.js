@@ -15,10 +15,9 @@ router.get("/city/:cityName", function (req, res) { // works but need to clean u
         let data = {problem : `Couldn't get Data for ${cityName}. Please check the spelling.`}
         res.send(data)} else {
 
-    let date = data.location.localtime.split(" ", 1) + " " + data.current.observation_time
     let city = {
              "name": data.location.name,
-             "updatedAt": date,
+             "updatedAt": data.location.localtime,
              "temperature": data.current.temperature,
              "condition": data.current.weather_descriptions[0],
              "conditionPic": data.current.weather_icons[0],
