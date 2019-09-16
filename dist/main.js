@@ -24,13 +24,16 @@ const handleSearch = function () {
     
 }
 
-const saveToDB = function(){
+const saveToDB =  function(){
     let cityName = $(this).closest(".cityContainer").find(".name").html()
+    let index = weatherManager.cityData.findIndex(c => c.name == cityName)
+    weatherManager.cityData[index].saved = true
     weatherManager.saveCity(cityName)
+    console.log(weatherManager.cityData)
+    render.renderData(weatherManager.cityData)
 }
 
 const removeFromDB = function () {
-    debugger
     let cityName = $(this).closest(".cityContainer").find(".name").html()
     weatherManager.removeCity(cityName).then(()=>{render.renderData(weatherManager.cityData)})
 }

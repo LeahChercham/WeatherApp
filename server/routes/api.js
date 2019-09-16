@@ -22,7 +22,8 @@ router.get("/city/:cityName", function (req, res) { // works but need to clean u
              "updatedAt": date,
              "temperature": data.current.temperature,
              "condition": data.current.weather_descriptions[0],
-             "conditionPic": data.current.weather_icons[0]
+             "conditionPic": data.current.weather_icons[0],
+             "saved": false
          }
          res.send(city)
         }
@@ -40,6 +41,7 @@ router.get("/cities", function (req, res) { //works
 
 router.post("/city", function (req, res) { //works
     let data = req.body
+    data.saved = true
     console.log(data)
     let city = new City(data)
     city.save()

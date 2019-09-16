@@ -10,9 +10,8 @@ class WeatherManager {
             success: (data) => {
                 if (data) {
                     this.cityData = data
-                    console.log("this is the data we get from db: " + this.cityData)
                 } else {
-                    console.log("No Data")
+                    console.log("No Data in DB")
                 }
             },
             error: function (xhr, text, error) { console.log(text) }
@@ -35,12 +34,13 @@ class WeatherManager {
         })
     }
 
-    saveCity(cityName) {
+     saveCity(cityName) {
         //works
+        
         let data = this.cityData.find(c => c.name === cityName)
-        console.log(data)
+        console.log(this.cityData)
 
-        return $.ajax({
+         $.ajax({
             method: "post",
             url: `/city`,
             data: data,

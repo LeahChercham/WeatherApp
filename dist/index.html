@@ -30,8 +30,11 @@
         {{#each allCityData}}
         <div class="cityContainer">
             <div id="cityButtons">
+                {{#if saved}}
+                <button class="removeButton"><i class="fas fa-trash"></i></button>
+            {{else}}
             <button class="saveButton"><i class="fas fa-save"></i></button>
-            <button class="removeButton"><i class="fas fa-trash"></i></button>
+            {{/if}}
         </div>
             <div class="name">{{name}}</div>
             <div class="temperature">{{temperature}} °C</div>

@@ -6,6 +6,7 @@ class Renderer {
             const newHtml = template({ allCityData })
             $("#main").empty().append(newHtml)
         } else {
+            $("#main").empty()
             console.log("No data in DB")
         }
     }
