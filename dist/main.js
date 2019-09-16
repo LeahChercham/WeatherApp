@@ -13,8 +13,15 @@ weatherManager.getDataFromDB().then(()=>{
 const handleSearch = function () {
     let cityInput = $("#cityInput").val()
     if(cityInput){
-    weatherManager.getCityData(cityInput).then(()=>{render.renderData(weatherManager.cityData)})
-    }else {alert("Please enter a City!")}
+        let index = weatherManager.cityData.findIndex(c => c.name == cityInput)
+        if(index== -1){
+        weatherManager.getCityData(cityInput).then(()=>{render.renderData(weatherManager.cityData)})}
+        else{
+            alert("City already on screen!")
+            // call update function 
+        }}else {alert("Please enter a City!")}
+    
+    
 }
 
 const saveToDB = function(){
@@ -23,6 +30,7 @@ const saveToDB = function(){
 }
 
 const removeFromDB = function () {
+    debugger
     let cityName = $(this).closest(".cityContainer").find(".name").html()
     weatherManager.removeCity(cityName).then(()=>{render.renderData(weatherManager.cityData)})
 }

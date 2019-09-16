@@ -52,14 +52,12 @@ class WeatherManager {
     }
 
     removeCity(cityName) {
-        //works
         return $.ajax({
             method: "delete",
             url: `/city/${cityName}`,
             success: () => {
-                let index = this.cityData.findIndex(c => c.name = cityName)
+                let index = this.cityData.findIndex(c => c.name == cityName)
                 this.cityData.splice(index, 1)
-                console.log("Successful delete manoever")
             },
             error: function (xhr, text, error) { console.log(text) }
         })
