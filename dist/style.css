@@ -45,7 +45,7 @@ input{
 
 
 
-#cityButtons{
+.cityButtons{
     grid-area: b;
     display:grid;
     grid-template-rows: 1fr 1fr;
@@ -94,7 +94,7 @@ input{
     justify-self: center;
     align-self: center;
     display:grid;
-    grid-template-columns: 1fr 8fr 1fr;
+    grid-template-columns: 1fr 8fr;
 }
 #upText{
     justify-content: center;
@@ -143,4 +143,5 @@ input{
 i{
     color:#759FBC;
     font-size: 2em;
+    cursor:pointer;
 }

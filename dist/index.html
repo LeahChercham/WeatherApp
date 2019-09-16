@@ -29,19 +29,21 @@
     <script id="weather-template" type="text/x-handlebars-template">
         {{#each allCityData}}
         <div class="cityContainer">
-            <div id="cityButtons">
-                {{#if saved}}
-                <button class="removeButton"><i class="fas fa-trash"></i></button>
+    
+            {{#if saved}}
+                 <button class="removeButton cityButtons"><i class="fas fa-trash"></i></button>
             {{else}}
-            <button class="saveButton"><i class="fas fa-save"></i></button>
+                <button class="saveButton cityButtons"><i class="fas fa-save"></i></button>
             {{/if}}
-        </div>
+        
             <div class="name">{{name}}</div>
             <div class="temperature">{{temperature}} °C</div>
         
-            <div class="updatedAt"><div></div><div id="upText"></div>
-            <i class="fas fa-sync-alt"></i>
-                Updated at: {{updatedAt}} local time</div></div>
+            <div class="updatedAt">
+                <i class="fas fa-sync-alt refreshButton"></i>
+                <div id="upText">Updated at: {{updatedAt}} local time </div>
+            </div>
+
             <div class="condition">Condition: {{condition}}</div>
             <img class="conditionPic" src={{conditionPic}} alt="condition Picture"></img>
         </div>

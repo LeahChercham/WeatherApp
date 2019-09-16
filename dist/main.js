@@ -19,9 +19,24 @@ const handleSearch = function () {
         else{
             alert("City already on screen!")
             // call update function 
-        }}else {alert("Please enter a City!")}
+        }}else {alert("Please enter a City!")}  
+}
+
+const refreshCityData = function(){
     
-    
+    let cityName = $(this).closest(".cityContainer").find(".name").html()
+    let city = weatherManager.cityData.find(c => c.name == cityName)
+    if(city.saved == true){
+        weatherManager.removeCity(cityName)
+        weatherManager.getCityData(cityName)
+        weatherManager.saveCity(cityName)
+        render.renderData(weatherManager.cityData)
+    } else {
+        let index = weatherManager.cityData.findIndex(c => c.name == cityName)
+        weatherManager.cityData.splice(index, 1)
+        weatherManager.getCityData(cityName).then(()=>{render.renderData(weatherManager.cityData)})
+    }
+
 }
 
 const saveToDB =  function(){
@@ -38,6 +53,7 @@ const removeFromDB = function () {
     weatherManager.removeCity(cityName).then(()=>{render.renderData(weatherManager.cityData)})
 }
 
+
 loadPage()
 
 $("#searchButton").on("click", handleSearch)
@@ -45,3 +61,5 @@ $("#searchButton").on("click", handleSearch)
 $("#main").on("click", ".saveButton", saveToDB)
 
 $("#main").on("click", ".removeButton", removeFromDB)
+
+$("#main").on("click", ".refreshButton", refreshCityData)

@@ -4,6 +4,7 @@ class WeatherManager {
     }
 
     getDataFromDB() {
+        
         return $.ajax({
             method: "get",
             url: "/cities",
@@ -19,6 +20,7 @@ class WeatherManager {
     }
 
     getCityData(cityName) {
+        
         //works
         return $.ajax({
             method: "get",
@@ -37,6 +39,7 @@ class WeatherManager {
      saveCity(cityName) {
         //works
         
+        
         let data = this.cityData.find(c => c.name === cityName)
         console.log(this.cityData)
 
@@ -52,6 +55,7 @@ class WeatherManager {
     }
 
     removeCity(cityName) {
+        
         return $.ajax({
             method: "delete",
             url: `/city/${cityName}`,

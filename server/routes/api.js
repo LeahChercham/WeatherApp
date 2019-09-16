@@ -7,7 +7,6 @@ const moment = require("moment")
 
 // =============================
 
-
 router.get("/city/:cityName", function (req, res) { // works but need to clean up updatedAt
     let cityName = req.params.cityName
     request(`http://api.weatherstack.com/current?access_key=${apiKey}&query=${cityName}`, function (err, response) {
