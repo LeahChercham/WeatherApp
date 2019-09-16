@@ -1,7 +1,7 @@
 const express = require("express")
 const router = express.Router()
 const request = require("request")
-const apiKey = process.env.APIKEY
+const apiKey = process.env.APIKEY || "17b16b2c7d335f2a1641e886890e543e"
 const City = require("../models/City")
 const moment = require("moment")
 
@@ -17,7 +17,6 @@ router.get("/city/:cityName", function (req, res) { // works but need to clean u
         res.send(data)} else {
 
     let date = data.location.localtime.split(" ", 1) + " " + data.current.observation_time
-    date = moment(date).format('lll')
     let city = {
              "name": data.location.name,
              "updatedAt": date,

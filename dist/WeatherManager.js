@@ -4,17 +4,16 @@ class WeatherManager {
     }
 
     getDataFromDB() {
-        //works
-       return $.ajax({
+        return $.ajax({
             method: "get",
             url: "/cities",
-            success: (data)=> {
-               if(data){
-                   this.cityData = data
-                   console.log("this is the data we get from db: "  + this.cityData)
-               }else {
-                   console.log("No Data")
-               }
+            success: (data) => {
+                if (data) {
+                    this.cityData = data
+                    console.log("this is the data we get from db: " + this.cityData)
+                } else {
+                    console.log("No Data")
+                }
             },
             error: function (xhr, text, error) { console.log(text) }
         })
@@ -26,11 +25,11 @@ class WeatherManager {
             method: "get",
             url: `/city/${cityName}`,
             success: (data) => {
-                if(data.problem){alert(data.problem)}else {
-                this.cityData.unshift(data)
-                console.log(data)
-                console.log(this.cityData)
-            }
+                if (data.problem) { alert(data.problem) } else {
+                    this.cityData.unshift(data)
+                    console.log(data)
+                    console.log(this.cityData)
+                }
             },
             error: function (xhr, text, error) { console.log(text) }
         })
@@ -48,23 +47,22 @@ class WeatherManager {
             success: function (data) {
                 console.log("post request success!")
             },
-            error: function (xhr, text, error) { console.log("error"+ text) }
+            error: function (xhr, text, error) { console.log("error" + text) }
         })
     }
 
     removeCity(cityName) {
         //works
-       return $.ajax({
+        return $.ajax({
             method: "delete",
             url: `/city/${cityName}`,
-            success: ()=> {
+            success: () => {
                 let index = this.cityData.findIndex(c => c.name = cityName)
-                this.cityData.splice(index,1)
+                this.cityData.splice(index, 1)
                 console.log("Successful delete manoever")
             },
             error: function (xhr, text, error) { console.log(text) }
         })
     }
-
 }
 
